@@ -21,3 +21,6 @@ The dataset contains information about individuals that have received a mortgage
 - bad_loan: 1 when a loan was not paid.
 
 ## Project process
+
+The first step of the porject will be to load the data. After this, a EDA (Exploratory Data Anlysis will be carried out). With this information, i will carry out a preprocessing of the data (missing values, outliers, features selection) in order to try to improve the results of the model. Once this is done, I will apply different classification models in order to get the best possible results.
+
