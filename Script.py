@@ -41,3 +41,9 @@ for col in data.select_dtypes(include = ['object']).columns:
 
     
 # %%
+data['last_major_derog_none'].fillna(0, inplace = True)
+data.isna().sum()
+# %%
+sns.boxplot(x = 'bad_loan', y = 'annual_inc', data = data)
+# %%
+
