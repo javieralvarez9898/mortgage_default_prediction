@@ -45,5 +45,26 @@ data['last_major_derog_none'].fillna(0, inplace = True)
 data.isna().sum()
 # %%
 sns.boxplot(x = 'bad_loan', y = 'annual_inc', data = data)
+print('Total number of households with anual income above 500k: ' + 
+str(sum(data['annual_inc'] >= 500000)))
+# %%
+sns.boxplot(x = 'bad_loan', y = 'emp_length_num', data = data)
+# %%
+sns.catplot(x = 'grade',data = data, hue = 'bad_loan',
+ kind = 'count', palette = 'Paired')
+plt.grid()
+# %%
+sns.catplot(x = 'home_ownership',data = data, hue = 'bad_loan',
+ kind = 'count', palette = 'Paired')
+plt.grid()
 # %%
 
+data['term'] = data['term'].str.replace('36 Months', '36 months')
+for col in data.select_dtypes(include = ['object']).columns:
+    sns.catplot(x = col ,data = data, hue = 'bad_loan',
+    kind = 'count', palette = 'Paired')
+    plt.grid()
+    locs, labels = plt.xticks()
+    plt.setp(labels, rotation=90)
+    plt.show()
+# %%
